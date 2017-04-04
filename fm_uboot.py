@@ -1,12 +1,14 @@
-from snapcraft.plugins.kbuild import KBuildPlugin
 import logging
 import os
 import shutil
 
+import snapcraft
+from snapcraft.plugins import kbuild
+
 logger = logging.getLogger(__name__)
 
 
-class UBootPlugin(KBuildPlugin):
+class UBootPlugin(kbuild.KBuildPlugin):
     @classmethod
     def schema(cls):
         schema = super().schema()
