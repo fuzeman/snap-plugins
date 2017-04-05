@@ -15,6 +15,12 @@ class FirmwarePlugin(BasePlugin):
 
         return schema
 
+    @classmethod
+    def get_build_properties(cls):
+        return super().get_build_properties() + [
+            'fm-firmware'
+        ]
+
     def enable_cross_compilation(self):
         pass
 
