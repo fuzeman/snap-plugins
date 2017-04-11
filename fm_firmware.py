@@ -86,6 +86,9 @@ class FirmwarePlugin(BasePlugin):
         return True
 
     def _matches(self, path):
+        if self.options.fm_firmware is None:
+            return True, False
+
         for item in self.options.fm_firmware:
             if item.startswith(path):
                 return True, item != path
