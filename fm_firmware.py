@@ -25,6 +25,10 @@ class FirmwarePlugin(BasePlugin):
         pass
 
     def build(self):
+        # Ensure "firmware" directory exists
+        os.makedirs(os.path.join(self.installdir, 'firmware'))
+
+        # Copy firmware into installation directory
         self._run(self.builddir)
 
     def _run(self, search_path, _base_path=None):
