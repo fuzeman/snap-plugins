@@ -32,6 +32,13 @@ class FirmwarePlugin(BasePlugin):
             _base_path = search_path
 
         for name in os.listdir(search_path):
+            if name == 'WHENCE':
+                continue
+
+            if name.startswith('LICENSE.'):
+                continue
+
+            # Build paths
             path = os.path.join(search_path, name)
             rel_path = os.path.relpath(path, _base_path)
 
